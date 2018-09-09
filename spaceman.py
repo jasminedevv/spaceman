@@ -11,6 +11,7 @@ def get_word():
     word_file = "/usr/share/dict/words"
     words = open(word_file).read().splitlines()
     word = random.choice(words)
+    # prevents it from grabbing words like Kelsy's
     while '\'' in word:
         word = random.choice(words)
     return word
