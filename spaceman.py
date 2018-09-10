@@ -11,7 +11,7 @@ def get_word():
     word_file = "/usr/share/dict/words"
     words = open(word_file).read().splitlines()
     word = random.choice(words)
-    # prevents it from grabbing words like Kelsy's
+    # prevents it from grabbing words with single quotes in them
     while '\'' in word:
         word = random.choice(words)
     return word
@@ -30,7 +30,9 @@ def update_display(word, guessed, tries):
         index += 1
     display = ''.join(display)
     print(display)
-    print("Number of tries: ", tries)
+    print("Number of missed tries: ", tries)
+    
+    ##### pls show me which letters i've already guessed and do a drawing
 
 # makes sure the input is a single character
 def sanitize_guess(guess):
